@@ -5,7 +5,9 @@ const getEmployees = async (req, res) => {
 		const [response] = await pool.query("select * from employee");
 		res.send(response);
 	} catch (error) {
-		return res.status(500).json({ message: "something goes wrong" });
+		return res
+			.status(500)
+			.json({ message: "something goes wrong" + error.message });
 	}
 };
 
@@ -22,7 +24,9 @@ const getEmployee = async (req, res) => {
 
 		res.send(response);
 	} catch (error) {
-		return res.status(500).json({ message: "something goes wrong" });
+		return res
+			.status(500)
+			.json({ message: "something goes wrong" + error.message });
 	}
 };
 
@@ -40,7 +44,9 @@ const postEmployees = async (req, res) => {
 			salary,
 		});
 	} catch (error) {
-		return res.status(500).json({ message: "something goes wrong" });
+		return res
+			.status(500)
+			.json({ message: "something goes wrong" + error.message });
 	}
 };
 
@@ -63,7 +69,9 @@ const putEmployees = async (req, res) => {
 
 		res.json(result[0]);
 	} catch (error) {
-		return res.status(500).json({ message: "something goes wrong" });
+		return res
+			.status(500)
+			.json({ message: "something goes wrong" + error.message });
 	}
 };
 
@@ -79,7 +87,9 @@ const deleteEmployees = async (req, res) => {
 
 		res.sendStatus(204);
 	} catch (error) {
-		return res.status(500).json({ message: "something goes wrong" });
+		return res
+			.status(500)
+			.json({ message: "something goes wrong" + error.message });
 	}
 };
 
